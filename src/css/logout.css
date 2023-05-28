@@ -1,0 +1,99 @@
+
+
+/* home.html */
+.logout-popup {
+    width: 100vw;
+    position: fixed;
+    top: 80px;
+    right: -33%;
+    display: none;
+    z-index: 999;
+    justify-content: center;
+}
+
+.m-active {
+    display: flex;
+}
+
+.logout-popup.m-active .popup {
+    animation: modal 0.4s;
+}
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: transparent;
+    backdrop-filter: blur(90px);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    width: 30%;
+}
+
+.popup h2 {
+    color: #000;
+    font-size: 2em;
+}
+
+.text-logout {
+    margin: 10px auto;
+}
+
+/* animação do popup de logout */
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.popup span {
+    margin: 10px auto;
+}
+
+.popup hr {
+    border-color: #000;
+}
+
+.navegacao .btnlogout-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: 0.5s;
+}
+
+.navegacao .btnlogout-popup:hover {
+    background: #fff;
+    color: #000;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.botoes button {
+    font-size: medium;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btnOK, .btnFechar {
+    background-color: #000;
+}
