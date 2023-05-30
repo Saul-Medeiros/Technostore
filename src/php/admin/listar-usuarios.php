@@ -1,3 +1,4 @@
+<!-- Editar -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,25 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- favicon da página -->
-    <link rel="shortcut icon" href="./images/logo-white.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
     <!-- Estilização da página -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/sobre.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/logout.css">
+    <link rel="stylesheet" href="../../css/usuario.css">
 
     <!-- Script para ações na página -->
-    <script defer src="./js/index.js"></script>
+    <script defer src="../../js/home.js"></script>
 </head>
 <body>
-    
     <header>
-        <h2>TechnoStore<img class="logo" src="./images/logo-white.png"></img></h2>
+        <h2>TechnoStore<img class="logo" src="../../images/logo-white.png"></h2>
         <nav class="navegacao">
-            <a href="" class="home">Home</a>
-            <a href="#">Sobre</a>
+            <a href="#">Editar Usuários</a>
+            <a href="">Editar Produtos</a>
+            <a href="./cadastrar-produto.php">Cadastrar Produto</a>
             <a href="">Voltar</a>
+            <button class="btnlogout-popup">Logout</button>
         </nav>
     </header>
 
@@ -45,11 +48,21 @@
         </form>
     </div>
 
+    <!-- php Usuários -->
     <main>
-        <div class="about">
-            <h2>TechnoStore<img class="logo" src="./images/logo-black.png"></h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus nobis sunt, sit corrupti aut quae id nam ipsam illum facilis asperiores repudiandae alias exercitationem animi magni voluptas repellendus! Ullam, illo!</p>
+
+        <div class="listagem-usuario">
+            <div class="usuario">
+                <img src="../../images/person.svg" alt="">
+                <span>
+                    <p>Usuário: Saul Medeiros da Silva</p>
+                    <p>Email: usermail@mail.com</p>
+                </span>
+            </div>
+            <button class="alterar">Alterar</button>
+            <button class="remover">Remover</button>
         </div>
+    
     </main>
 
 </body>

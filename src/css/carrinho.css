@@ -36,6 +36,10 @@
     right: 100px;
 }
 
+form {
+    height: 100%;
+}
+
 .remover {
     height: 100%;
     width: 85px;

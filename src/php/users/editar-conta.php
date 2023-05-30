@@ -1,4 +1,4 @@
-<!-- Se estiver logado -->
+<!-- Editar -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,17 +11,17 @@
     <title>TechnoStore</title>
     
     <!-- Estilização da página -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/logout.css">
-    <link rel="stylesheet" href="./css/editar-produto.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/logout.css">
+    <link rel="stylesheet" href="../../css/editar-produto.css">
 
     <!-- Script para ações na página -->
-    <script defer src="./js/home.js"></script>
-    <script defer src="./js/edit-account.js"></script>
+    <script defer src="../../js/home.js"></script>
+    <script defer src="../../js/edit-account.js"></script>
 </head>
 <body>
     <header>
-        <h2>TechnoStore<img class="logo" src="./images/logo-white.png"></h2>
+        <h2>TechnoStore<img class="logo" src="../../images/logo-white.png"></h2>
         <nav class="navegacao">
             <a href="">Sobre</a>
             <a href="">Carrinho</a>
@@ -52,7 +52,7 @@
     <main>
         <div class="formulario-edicao">
             <span class="icone-fechar">
-                <img src="./images/close.png">
+                <img src="../../images/close.png">
             </span>
         
             <!-- Div de Alteração do Usuário -->
@@ -60,17 +60,17 @@
                 <h2>Modificar Conta</h2>
                 <form action="#" method="POST">
                     <div class="input-box">
-                        <span class="icones"><img src="./images/person.svg" alt=""></span>
+                        <span class="icones"><img src="../../images/person.svg" alt=""></span>
                         <input type="text" name="" required>
                         <label>Nome de Usuário</label>
                     </div>
                     <div class="input-box">
-                        <span class="icones"><img src="./images/mail.svg" alt=""></span>
+                        <span class="icones"><img src="../../images/mail.svg" alt=""></span>
                         <input type="text" name="" required>
                         <label>Email</label>
                     </div>
                     <div class="input-box">
-                        <span class="icones"><img class="senha-icone" src="./images/eye-off-outline.svg"></span>
+                        <span class="icones"><img class="senha-icone" src="../../images/eye-off-outline.svg"></span>
                         <input type="password" name="" class="senha" required>
                         <label>Senha</label>
                     </div>

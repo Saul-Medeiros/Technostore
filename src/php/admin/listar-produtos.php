@@ -1,4 +1,4 @@
-<!-- Se estiver logado -->
+<!-- Editar -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,21 +11,21 @@
     <title>TechnoStore</title>
     
     <!-- Estilização da página -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/logout.css">
-    <link rel="stylesheet" href="./css/home-admin.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/logout.css">
+    <link rel="stylesheet" href="../../css/home-admin.css">
+    <link rel="stylesheet" href="../../css/listar-produtos.css">
 
     <!-- Script para ações na página -->
-    <script defer src="./js/home.js"></script>
+    <script defer src="../../js/home.js"></script>
 </head>
 <body>
     <header>
         <h2>Administrador</h2>
         <nav class="navegacao">
-            <a href="#">Home</a>
+            <a href="./home-admin.php">Home</a>
             <a href="">Editar Usuários</a>
-            <a href="">Editar Produtos</a>
-            <a href="./cadastrar-produto.html">Cadastrar Produto</a>
+            <a href="#">Editar Produtos</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
     </header>
@@ -48,8 +48,20 @@
         </form>
     </div>
 
+    <!-- php Produtos -->
     <main>
-        <h1 class="background-logo">TechnoStore<img class="logo" src="./images/logo-black.png"></h1>
+        
+        <div class="produtos">
+            <div class="produto">
+                <img src="../../images/hardware-chip.svg" alt="">
+                <p>Nome nome nome nome nome</p>
+            </div>
+            <div class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus assumenda aliquam omnis facere? Eos eligendi molestiae sit, dolores esse, qui doloribus asperiores ducimus ipsa exercitationem aspernatur, culpa perspiciatis at ex.</div>
+            <div class="preco">R$ 10000,00</div>
+            <button class="alterar">Alterar</button>
+            <button class="remover">Remover</button>
+        </div>
+        
     </main>
 
 </body>

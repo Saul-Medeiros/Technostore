@@ -31,16 +31,15 @@ DROP TABLE IF EXISTS `carrinho`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `carrinho` (
-  `pedidos_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuarios_id` int(11) NOT NULL,
   `produtos_id` int(11) NOT NULL,
-  `id` int(11) NOT NULL,
   `quantidade` int(11) NOT NULL,
-  `preco` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`pedidos_id`,`produtos_id`,`id`),
-  KEY `fk_pedidos_has_produtos_produtos1_idx` (`produtos_id`),
-  KEY `fk_pedidos_has_produtos_pedidos_idx` (`pedidos_id`),
-  CONSTRAINT `fk_pedidos_has_produtos_pedidos` FOREIGN KEY (`pedidos_id`) REFERENCES `pedidos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pedidos_has_produtos_produtos1` FOREIGN KEY (`produtos_id`) REFERENCES `produtos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`id`,`usuarios_id`,`produtos_id`),
+  KEY `fk_usuarios_has_produtos_produtos1_idx` (`produtos_id`),
+  KEY `fk_usuarios_has_produtos_usuarios` (`usuarios_id`),
+  CONSTRAINT `fk_usuarios_has_produtos_produtos1` FOREIGN KEY (`produtos_id`) REFERENCES `produtos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_usuarios_has_produtos_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,29 +53,30 @@ LOCK TABLES `carrinho` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `pedidos`
+-- Table structure for table `notafiscal`
 --
 
-DROP TABLE IF EXISTS `pedidos`;
+DROP TABLE IF EXISTS `notafiscal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pedidos` (
+CREATE TABLE `notafiscal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `total` decimal(10,2) NOT NULL,
+  `data_emissao` date NOT NULL,
+  `valor_total` decimal(10,2) NOT NULL,
   `usuarios_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_pedidos_usuarios1_idx` (`usuarios_id`),
-  CONSTRAINT `fk_pedidos_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_notafiscal_usuarios1_idx` (`usuarios_id`),
+  CONSTRAINT `fk_notafiscal_usuarios` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pedidos`
+-- Dumping data for table `notafiscal`
 --
 
-LOCK TABLES `pedidos` WRITE;
-/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
+LOCK TABLES `notafiscal` WRITE;
+/*!40000 ALTER TABLE `notafiscal` DISABLE KEYS */;
+/*!40000 ALTER TABLE `notafiscal` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -91,7 +91,6 @@ CREATE TABLE `produtos` (
   `nome` varchar(45) NOT NULL,
   `descricao` text NOT NULL,
   `preco` decimal(10,2) NOT NULL,
-  `estoque` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -114,9 +113,9 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `nome` varchar(150) NOT NULL,
+  `senha` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -127,7 +126,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES (1,'admin','admin','admin');
+INSERT INTO `usuarios` (`id`, `email`, `nome`, `senha`) VALUES (1,'admin','admin','admin');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -140,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-25  8:24:57
+-- Dump completed on 2023-05-28 21:21:24

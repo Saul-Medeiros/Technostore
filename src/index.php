@@ -1,11 +1,25 @@
-<!-- Página de Login -->
-
 <?php
+
+/* Este bloco de código garante que, o usuário, uma vez logado, só consiga acessar esta página se tiver feito o logout */
+session_start();
+
+// se usuário já tiver inicado a sessão    
+if (isset($_SESSION['usuario_email'])) { 
+    // sessão admin
+    if ($_SESSION['usuario_email'] == 'admin') {
+        header('Location: ./php/admin/home-admin.php');
+    // sessão com usuário comum
+    } else {
+        header('Location: ./php/users/home.php');
+    }
+}
+
 /* script para conectar ao banco de dados e carregar os produtos */ 
 include('./php/connect-mysql.php');
 $sql_code = "SELECT * FROM produtos";
 $query = mysqli_query($conexao, $sql_code);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,7 +44,7 @@ $query = mysqli_query($conexao, $sql_code);
         <h2>TechnoStore<img class="logo" src="./images/logo-white.png"></h2>
         <nav class="navegacao">
             <a href="#">Home</a>
-            <a href="">Sobre</a>
+            <a href="./sobre.php">Sobre</a>
             <a href="">Contato</a>
             <button class="btnlogin-popup">Login</button>
         </nav>
@@ -45,14 +59,14 @@ $query = mysqli_query($conexao, $sql_code);
         <!-- Div de login do usuário -->
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="./php/login-check.php" method="POST">
+            <form action="./php/redirects/login-check.php" method="POST">
                 <div class="input-box">
-                    <span class="icones"><img src="./images/mail.svg" alt=""></span>
+                    <span class="icones"><img src="./images/mail.svg" alt="email-icon"></span>
                     <input type="text" name="email" required>
                     <label>E-mail</label>
                 </div>
                 <div class="input-box">
-                    <span class="icones"><img src="./images/eye-off-outline.svg" class="senha-icone-login" alt=""></span>
+                    <span class="icones"><img src="./images/eye-off-outline.svg" class="senha-icone-login" alt="eye-icon"></span>
                     <input type="password" name="senha" class="senha-login" required>
                     <label>Senha</label>
                 </div>
@@ -70,14 +84,14 @@ $query = mysqli_query($conexao, $sql_code);
         <!-- Div de Registro do Usuário -->
         <div class="form-box register">
             <h2>Cadastre-se</h2>
-            <form action="./php/cadastrar-usuario.php" method="POST">
+            <form action="./php/redirects/cadastrar-usuario.php" method="POST">
                 <div class="input-box">
-                    <span class="icones"><img src="./images/person.svg" alt=""></span>
+                    <span class="icones"><img src="./images/person.svg" alt="person-icon"></span>
                     <input type="text" name="nome" required>
                     <label>Nome de Usuário</label>
                 </div>
                 <div class="input-box">
-                    <span class="icones"><img src="./images/mail.svg" alt=""></span>
+                    <span class="icones"><img src="./images/mail.svg" alt="email-icon"></span>
                     <input type="text" name="email" required>
                     <label>Email</label>
                 </div>
@@ -87,7 +101,7 @@ $query = mysqli_query($conexao, $sql_code);
                     <label>Senha</label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox" name="" required> Eu aceito os termos e condições</label>
+                    <label><input type="checkbox" required> Eu aceito os termos e condições</label>
                 </div>
                 <button type="submit" class="btn">Registrar</button>
                 <div class="login-registro">

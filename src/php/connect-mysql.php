@@ -1,7 +1,7 @@
 <?php 
 $porta = "127.0.0.1";
-$usuario = "root";
+$user = "root";
 $senha = "";
 $banco = "technostore";
-$conexao = mysqli_connect($porta, $usuario, $senha, $banco);
+$conexao = mysqli_connect($porta, $user, $senha, $banco);
 ?>
