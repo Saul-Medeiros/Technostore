@@ -11,9 +11,7 @@
     $senha = $_POST['senha'];
     $query_check_user = "SELECT * FROM usuarios WHERE email='$usuario_email'";
 
-    if (mysqli_connect_errno()) {
-        die("Falha de Conexão com o MySQL: " . mysqli_connect_error());
-    } else if (mysqli_num_rows(mysqli_query($conexao, $query_check_user)) == 0) {
+    if (mysqli_num_rows(mysqli_query($conexao, $query_check_user)) == 0) {
         // usuário não registrado
         echo "
         <script>

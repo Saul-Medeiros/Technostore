@@ -12,13 +12,7 @@
     $senha = $_POST['senha'];
     $sql_code = "INSERT INTO usuarios(nome, email, senha) VALUES('$nome', '$email', '$senha')";
 
-    if (mysqli_connect_errno()) {
-        echo "
-        <script>
-            alert('Não foi possível registrar usuário. Falha de Conexão com MySQL');
-            location.assign('../../index.php');
-        </script>";
-    } else if (mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM usuarios WHERE email='$email'")) > 0) {
+    if (mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM usuarios WHERE email='$email'")) > 0) {
         echo "
         <script>
             alert('Usuário já possui registro em nosso site.');

@@ -1,7 +1,11 @@
 <?php 
 session_start();
+// usuário não iniciou sessão
 if (!isset($_SESSION['usuario_email'])) {
     header('Location: ../../index.php');
+// usuário não é admin
+} else if (!($_SESSION['usuario_email'] == "admin")) {
+    header('Location: ../users/home.php');
 }
 ?>
 <!DOCTYPE html>
@@ -28,8 +32,8 @@ if (!isset($_SESSION['usuario_email'])) {
         <h2>Administrador</h2>
         <nav class="navegacao">
             <a href="#">Home</a>
-            <a href="">Editar Usuários</a>
-            <a href="">Editar Produtos</a>
+            <a href="./listar-usuarios.php">Editar Usuários</a>
+            <a href="./listar-produtos.php">Editar Produtos</a>
             <a href="./cadastrar-produto.php">Cadastrar Produto</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
@@ -47,7 +51,6 @@ if (!isset($_SESSION['usuario_email'])) {
                     <form action="../redirects/logout.php">
                         <button type="submit" class="btnOK">OK</button>
                     </form>
-                    
                     <button class="btnFechar">Fechar</button>
                 </div>
             </div>
@@ -55,7 +58,7 @@ if (!isset($_SESSION['usuario_email'])) {
     </div>
 
     <main>
-        <h1 class="background-logo">TechnoStore<img class="logo" src="./images/logo-black.png"></h1>
+        <h1 class="background-logo">TechnoStore<img class="logo" src="../../images/logo-black.png"></h1>
     </main>
 
 </body>

@@ -1,12 +1,13 @@
-<!-- Editar -->
-
 <?php
 include('../connect-mysql.php');
-if (mysqli_connect_errno()) {
-    die("Falha de Conexão com o MySQL: " . mysqli_connect_error());
-}
 
 session_start();
+// usuário não iniciou sessão
+if (!isset($_SESSION['usuario_email'])) {
+    // redireciona a página de login
+    header('Location: ../../index.php');
+}
+
 $usuario_email = $_SESSION['usuario_email'];
 
 $usuario_id = mysqli_fetch_row(mysqli_query($conexao, "SELECT id FROM usuarios WHERE email='$usuario_email'"))[0];
@@ -38,33 +39,32 @@ $query = mysqli_query($conexao, $sql_code);
     <header>
         <h2>TechnoStore<img class="logo" src="../../images/logo-white.png"></h2>
         <nav class="navegacao">
-            <a href="">Sobre</a>
+            <a href="./sobre.php">Sobre</a>
             <a href="#">Carrinho</a>
-            <a href="">Editar Conta</a>
-            <a href="">Voltar</a>
+            <a href="./editar-conta.php">Editar Conta</a>
+            <a href="./home.php">Voltar</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
     </header>
 
     <!-- popup de logout do usuário -->
     <div class="form-box">
-        <form action="">
-            <div class="logout-popup">
-                <div class="popup">
-                    <h2>Logout</h2>
-                    <hr>
-                    <span class="text-logout">Tem certeza de que deseja encerrar sua sessão?</span>
-                    <hr>
-                    <div class="botoes">
-                        <button class="btnOK">OK</button>
-                        <button class="btnFechar">Fechar</button>
-                    </div>
+        <div class="logout-popup">
+            <div class="popup">
+                <h2>Logout</h2>
+                <hr>
+                <span class="text-logout">Tem certeza de que deseja encerrar sua sessão?</span>
+                <hr>
+                <div class="botoes">
+                    <form action="../redirects/logout.php">
+                        <button type="submit" class="btnOK">OK</button>
+                    </form>
+                    <button class="btnFechar">Fechar</button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
-    <!-- php carrinho usuário -->
     <main>
 
         <?php
@@ -105,7 +105,10 @@ $query = mysqli_query($conexao, $sql_code);
         <div class="total">
             <p>Total:</p>
             <p>R$ <?php echo number_format($total, 2, ',', '.'); ?></p>
-            <button>Ver Nota Fiscal</button>
+            <form action="./exibir-nota-fiscal.php">
+                <input type="hidden" name="valor_total" value="<?php echo number_format($total, 2, ',', '.'); ?>">
+                <button type="submit">Ver Nota Fiscal</button>
+            </form>
         </div>    
     </main>
     

@@ -7,10 +7,6 @@ if (!isset($_SESSION['usuario_email'])) {
 /* script para conectar ao banco de dados e carregar os produtos */
 include("../connect-mysql.php");
 
-if (mysqli_connect_errno()) {
-    die("Falha de Conexão com o MySQL: " . mysqli_connect_error());
-}
-
 $sql_code = "SELECT * FROM produtos";
 $query = mysqli_query($conexao, $sql_code);
 ?>
@@ -38,8 +34,9 @@ $query = mysqli_query($conexao, $sql_code);
         <h2>TechnoStore<img class="logo" src="../../images/logo-white.png"></h2>
         <nav class="navegacao">
             <a href="#">Home</a>
+            <a href="../../html/sobre.html">Sobre</a>
             <a href="./carrinho.php">Carrinho</a>
-            <a href="">Editar Conta</a>
+            <a href="./editar-conta.php">Editar Conta</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
     </header>
@@ -56,7 +53,6 @@ $query = mysqli_query($conexao, $sql_code);
                     <form action="../redirects/logout.php">
                         <button type="submit" class="btnOK">OK</button>
                     </form>
-
                     <button class="btnFechar">Fechar</button>
                 </div>
             </div>

@@ -1,4 +1,18 @@
-<!-- Editar -->
+<?php 
+session_start();
+// usuário não iniciou sessão
+if (!isset($_SESSION['usuario_email'])) {
+    header('Location: ../../index.php');
+// usuário não é admin
+} else if (!($_SESSION['usuario_email'] == "admin")) {
+    header('Location: ../users/home.php');
+}
+
+include('../connect-mysql.php');
+
+$sql_code = "SELECT * FROM produtos";
+$query = mysqli_query($conexao, $sql_code);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,44 +38,64 @@
         <h2>Administrador</h2>
         <nav class="navegacao">
             <a href="./home-admin.php">Home</a>
-            <a href="">Editar Usuários</a>
+            <a href="./listar-usuarios.php">Editar Usuários</a>
             <a href="#">Editar Produtos</a>
+            <a href="./cadastrar-produto.php">Cadastrar Produto</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
     </header>
 
     <!-- popup de logout do usuário -->
     <div class="form-box">
-        <form action="">
-            <div class="logout-popup">
-                <div class="popup">
-                    <h2>Logout</h2>
-                    <hr>
-                    <span class="text-logout">Tem certeza de que deseja encerrar sua sessão?</span>
-                    <hr>
-                    <div class="botoes">
+        <div class="logout-popup">
+            <div class="popup">
+                <h2>Logout</h2>
+                <hr>
+                <span class="text-logout">Tem certeza de que deseja encerrar sua sessão?</span>
+                <hr>
+                <div class="botoes">
+                    <form action="../redirects/logout.php">
                         <button class="btnOK">OK</button>
-                        <button class="btnFechar">Fechar</button>
-                    </div>
+                    </form>
+                    <button class="btnFechar">Fechar</button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <!-- php Produtos -->
     <main>
-        
+        <?php 
+        // se não houver produtos cadastrados
+        if (mysqli_num_rows($query) == 0) {
+            // redireciona a página principal
+            echo "
+            <script>
+                alert('Não há produtos para serem listados!');
+                location.assign('./home-admin.php');
+            </script>";
+        }
+        while ($row=mysqli_fetch_array($query)) {
+        ?>
         <div class="produtos">
             <div class="produto">
-                <img src="../../images/hardware-chip.svg" alt="">
-                <p>Nome nome nome nome nome</p>
+                <img src="../../images/image-outline.svg">
+                <p><?php echo $row['nome']; ?></p>
             </div>
-            <div class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus assumenda aliquam omnis facere? Eos eligendi molestiae sit, dolores esse, qui doloribus asperiores ducimus ipsa exercitationem aspernatur, culpa perspiciatis at ex.</div>
-            <div class="preco">R$ 10000,00</div>
-            <button class="alterar">Alterar</button>
-            <button class="remover">Remover</button>
+            <div class="descricao"><?php echo $row['descricao']; ?></div>
+            <div class="preco">R$ <?php echo number_format($row['preco'], 2, ",", "."); ?></div>
+            
+            <form action="./alterar-produto.php" method="POST">
+                <input type="hidden" name="nome" value="<?php echo $row['nome']; ?>">
+                <button class="alterar">Alterar</button>
+            </form>
+
+            <form action="../redirects/remover-produto.php" method="POST">
+                <input type="hidden" name="nome" value="<?php echo $row['nome']; ?>">
+                <button class="remover">Remover</button>
+            </form>
         </div>
-        
+        <?php } mysqli_close($conexao); ?>
     </main>
 
 </body>

@@ -7,6 +7,14 @@ if (!isset($_SESSION['usuario_email'])) {
 } else if (!($_SESSION['usuario_email'] == "admin")) {
     header('Location: ../users/home.php');
 }
+
+include('../connect-mysql.php');
+
+$nome = $_POST['nome'];
+$row = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM produtos WHERE nome='$nome'"));
+$descricao = $row['descricao'];
+$preco = $row['preco'];
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,8 +42,8 @@ if (!isset($_SESSION['usuario_email'])) {
         <h2>Administrador</h2>
         <nav class="navegacao">
             <a href="./listar-usuarios.php">Editar Usuários</a>
-            <a href="./listar-produtos.php">Editar Produtos</a>
-            <a href="#">Cadastrar Produto</a>
+            <a href="#">Editar Produtos</a>
+            <a href="./cadastrar-produto.php">Cadastrar Produto</a>
             <a href="./home-admin.php">Voltar</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
@@ -62,30 +70,31 @@ if (!isset($_SESSION['usuario_email'])) {
     <main>
         <div class="formulario-edicao">
         
-            <!-- Div de Cadastro de Novo Produto -->
+            <!-- Div de Alteração de Novo Produto -->
             <div class="form-box produto">
-                <h2>Cadastrar Produto</h2>
-                <form action="../redirects/cadastrar-produto-redirect.php" method="POST">
+                <h2>Alterar Produto</h2>
+                <form action="../redirects/alterar-produto-redirect.php" method="POST">
                     <div class="input-box">
                         <span class="icones"><img src="../../images/hardware-chip.svg" alt=""></span>
-                        <input type="text" name="nome" required>
+                        <input type="text" name="nome" value="<?php echo $nome; ?>" required>
                         <label>Nome do Produto</label>
                     </div>
                     <div class="input-box">
                         <span class="icones"><img src="../../images/document-text.svg" alt=""></span>
-                        <input type="text" name="descricao" required>
+                        <input type="text" name="descricao" value="<?php echo $descricao; ?>" required>
                         <label>Descrição</label>
                     </div>
                     <div class="input-box">
                         <span class="icones"><img src="../../images/pricetag.svg"></span>
-                        <input type="number" name="preco" step="0.01" required>
+                        <input type="number" name="preco" value="<?php echo $preco; ?>" step="0.01" required>
                         <label>Preço</label>
                     </div>
                     <div>
-                        <button type="submit" class="btn">Cadastrar</button>
+                        <input type="hidden" name="antigo_nome" value="<?php echo $nome; ?>">
+                        <button type="submit" class="btn">Alterar</button>
                     </div>
                 </form>
-                <a href="./home-admin.php">
+                <a href="./listar-produtos.php">
                     <button class="btn voltar">Voltar</button>
                 </a>
             </div>

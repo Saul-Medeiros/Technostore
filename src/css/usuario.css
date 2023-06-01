@@ -36,14 +36,8 @@
     flex-direction: column;
 }
 
-.alterar {
-    position: absolute;
-    right: 86px;
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
-}
-
 .alterar, .remover {
+    position: absolute;
     height: 100%;
     width: 85px;
     background: black;
@@ -52,7 +46,16 @@
     border: none;
 }
 
+.alterar {
+    right: 86px;
+    bottom: 0;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
 .remover {
+    right: 0;
+    bottom: 0;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
 }

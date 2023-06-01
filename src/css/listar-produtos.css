@@ -47,14 +47,9 @@
     right: 190px;
 }
 
-.alterar {
-    position: absolute;
-    right: 86px;
-    border-bottom-left-radius: 15px;
-    border-top-left-radius: 15px;
-}
-
 .alterar, .remover {
+    position: absolute;
+    bottom: 0;
     height: 100%;
     width: 85px;
     background: black;
@@ -63,46 +58,14 @@
     border: none;
 }
 
+.alterar {
+    right: 86px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
 .remover {
-    position: absolute;
     right: 0;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
-}
-
-.alterar:hover, .remover:hover {
-    background: none;
-    transition: 0.5s;
-    border: 4px solid black;
-    color: black;
-    font-weight: 600;
-}
-
-.total {
-    height: 20%;
-    width: 50%;
-    align-self: right;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    backdrop-filter: blur(20px); /* propriedade que aplica efeitos gráficos na página */
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    display: flex;
-    padding: 0 0 0 10px; /* cima direita baixo esquerda */
-    margin: 10px 0; /* cima-baixo direita-esquerda */
-    align-items: center;
-    justify-content: space-between;
-    color: black;
-    font-weight: 600;
-    overflow: hidden;
-}
-
-.total button {
-    height: 100%;
-    width: 80px;
-    background: black;
-    color: white;
-    cursor: pointer;
-    border: none;
-    right: 0;
 }

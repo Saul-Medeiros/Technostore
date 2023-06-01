@@ -1,5 +1,4 @@
 <?php
-
 /* Este bloco de código garante que, o usuário, uma vez logado, só consiga acessar esta página se tiver feito o logout */
 session_start();
 
@@ -44,8 +43,7 @@ $query = mysqli_query($conexao, $sql_code);
         <h2>TechnoStore<img class="logo" src="./images/logo-white.png"></h2>
         <nav class="navegacao">
             <a href="#">Home</a>
-            <a href="./sobre.php">Sobre</a>
-            <a href="">Contato</a>
+            <a href="./php/users/sobre.php">Sobre</a>
             <button class="btnlogin-popup">Login</button>
         </nav>
     </header>
@@ -143,9 +141,7 @@ $query = mysqli_query($conexao, $sql_code);
                     </span>
                 </div>
             </div>
-        <?php
-        } mysqli_close($conexao);
-        ?>
+        <?php } mysqli_close($conexao); ?>
     </main>
 
 </body>

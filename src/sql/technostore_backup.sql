@@ -61,7 +61,7 @@ DROP TABLE IF EXISTS `notafiscal`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `notafiscal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `data_emissao` date NOT NULL,
+  `data_emissao` datetime NOT NULL,
   `valor_total` decimal(10,2) NOT NULL,
   `usuarios_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
