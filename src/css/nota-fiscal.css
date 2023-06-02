@@ -1,0 +1,48 @@
+.nota-fiscal {
+    display: flex;
+    flex-direction: column;
+    width: 45%; /* referente a tag main */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    height: auto;
+    align-items: center;
+    color: black;
+    position: relative;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px); /* propriedade que aplica efeitos gráficos na página */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* o que estiver posicionado fora do conteúdo é cortado e nenhuma barra de rolagem é exibida */
+}
+
+.nota-fiscal hr {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* 100% do tamanho da tag nota-fiscal */
+    overflow: hidden; /*esconde o que sobrepor o tamanho da tag */
+    max-height: 400px;
+    overflow-y: auto; /* cria um scroll para mostrar itens ocultos caso exista */
+}
+
+.titulo, .itens, .valor-total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo h2 {
+    color: black;
+}
+
+.valor-total {
+    position: absolute;
+    bottom: 10px;
+    width: 93%;
+}

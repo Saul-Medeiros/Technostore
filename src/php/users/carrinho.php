@@ -75,7 +75,10 @@ $query = mysqli_query($conexao, $sql_code);
             <div class="produto">
                 <img src="../../images/image-outline.svg" alt="image-icon">
                 
-                <?php 
+                <?php
+                // inner join requires here
+                $id_carrinho = $row['id'];
+
                 $id_produto = $row['produtos_id'];
                 $query_produto = mysqli_query($conexao, "SELECT * FROM produtos WHERE id='$id_produto'");
                 $array_produto = mysqli_fetch_array($query_produto);
@@ -93,8 +96,8 @@ $query = mysqli_query($conexao, $sql_code);
                 ?>
             </div>
             
-            <form action="../redirects/remove-from-cart.php" method="POST">
-                <input type="hidden" name="id_produto" value="<?php echo $id_produto; ?>">
+            <form action="../redirects/remover-do-carrinho.php" method="POST">
+                <input type="hidden" name="id_carrinho" value="<?php echo $id_carrinho; ?>">
                 <button class="remover" type="submit">Remover</button>
             </form>
         </div>
@@ -105,7 +108,7 @@ $query = mysqli_query($conexao, $sql_code);
         <div class="total">
             <p>Total:</p>
             <p>R$ <?php echo number_format($total, 2, ',', '.'); ?></p>
-            <form action="./exibir-nota-fiscal.php">
+            <form action="./exibir-nota-fiscal.php" method="POST">
                 <input type="hidden" name="valor_total" value="<?php echo number_format($total, 2, ',', '.'); ?>">
                 <button type="submit">Ver Nota Fiscal</button>
             </form>

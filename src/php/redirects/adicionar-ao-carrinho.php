@@ -1,4 +1,3 @@
-<!-- Lembrar de aadicionar as alterações da tabela notafiscal aqui -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +19,13 @@
 
     $sql_code_carrinho = "INSERT INTO carrinho(usuarios_id, produtos_id, quantidade) VALUES('$id_usuario','$id_produto',1)";
     $sql_query = mysqli_query($conexao, $sql_code_carrinho);
+    mysqli_close($conexao);
 
     echo "
     <script>
         alert('Compra Realizada com Sucesso!');
         location.assign('../users/home.php')
     </script>";
-    mysqli_close($conexao);
     ?>
 </body>
 </html>

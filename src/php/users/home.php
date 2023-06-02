@@ -87,7 +87,7 @@ $query = mysqli_query($conexao, $sql_code);
                     <span class="preco">
                         R$ <?php echo number_format($row['preco'], 2, ',', '.'); ?>
                     </span>
-                    <form action="../redirects/add-in-cart.php" method="POST">
+                    <form action="../redirects/adicionar-ao-carrinho.php" method="POST">
                         <input type="hidden" name="nome" value="<?php echo $row['nome']; ?>">
                         <input type="hidden" name="descricao" value="<?php echo $row['descricao']; ?>">
                         <input type="hidden" name="preco" value="<?php echo $row['preco']; ?>">
