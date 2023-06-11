@@ -1,0 +1,60 @@
+.listagem-usuario {
+    width: 70%;
+    height: 20%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px); /* propriedade que aplica efeitos gráficos na página */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 0 10px; /* cima direita baixo esquerda */
+    margin: 10px 0; /* cima-baixo direita-esquerda */
+    align-items: center;
+    overflow: hidden; /* o que estiver posicionado fora do conteúdo é cortado e nenhuma barra de rolagem é exibida */
+}
+
+.listagem-usuario div {
+    color: black;
+    font-weight: 600;
+}
+
+.usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    gap: 15px; /* espaçamento entre as tags internas */
+}
+
+.usuario img {
+    width: 64px;
+    height: 64px;
+}
+
+.usuario span {
+    flex-direction: column;
+}
+
+.alterar, .remover {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 85px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.alterar {
+    right: 86px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.remover {
+    right: 0;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
