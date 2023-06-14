@@ -29,8 +29,8 @@
             location.assign('../../index.php');
         </script>";
     }
-    mysqli_close($conexao);
     
+    mysqli_close($conexao);
     ?>
 </body>
 </html>

@@ -26,9 +26,10 @@
         echo "
         <script>
             alert('Produto Cadastrado com Sucesso!');
-            location.assign('../admin/cadastrar-produto.php')
+            location.assign('../admin/cadastrar-produto.php');
         </script>";
     }
+    
     mysqli_close($conexao);
     ?>
 </body>

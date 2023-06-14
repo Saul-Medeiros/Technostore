@@ -18,11 +18,13 @@
 
     $sql_code = "UPDATE produtos SET nome='$nome', descricao='$descricao', preco='$preco' WHERE nome='$antigo_nome'";
     mysqli_query($conexao, $sql_code);
+    
     echo "
     <script>
         alert('Produto alterado com sucesso!');
         location.assign('../admin/listar-produtos.php');
     </script>";
+
     mysqli_close($conexao);
     ?>
 </body>

@@ -22,14 +22,15 @@
     $id_produto = mysqli_fetch_array(mysqli_query($conexao, "SELECT id FROM produtos WHERE nome='$nome' AND descricao='$descricao'"))['id'];
 
     $sql_code_carrinho = "INSERT INTO carrinho(usuarios_id, produtos_id) VALUES('$id_usuario','$id_produto')";
-    $sql_query = mysqli_query($conexao, $sql_code_carrinho);
-    mysqli_close($conexao);
-
+    mysqli_query($conexao, $sql_code_carrinho);
+    
     echo "
     <script>
         alert('Compra Realizada com Sucesso!');
-        location.assign('../users/home.php')
+        location.assign('../users/home.php');
     </script>";
+
+    mysqli_close($conexao);
     ?>
 </body>
 </html>

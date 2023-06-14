@@ -46,3 +46,7 @@
     bottom: 10px;
     width: 93%;
 }
+
+.valor-total p {
+    font-weight: bold;
+}

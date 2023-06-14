@@ -51,6 +51,7 @@
             }
         }
     }
+    
     mysqli_close($conexao);
     ?>
 </body>

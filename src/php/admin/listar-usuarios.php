@@ -92,7 +92,7 @@ $query = mysqli_query($conexao, $sql_code);
                 <input type="hidden" name="user_mail" value="<?php echo $row['email']; ?>">
                 <button class="alterar">Alterar</button>
             </form>
-            <form action="../redirects/excluir-conta.php" method="POST">
+            <form action="../redirects/excluir-conta-usuario.php" method="POST">
                 <input type="hidden" name="user_mail" value="<?php echo $row['email']; ?>">
                 <button class="remover">Excluir Conta</button>
             </form>
