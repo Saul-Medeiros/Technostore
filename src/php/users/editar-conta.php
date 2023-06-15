@@ -45,7 +45,6 @@ $row = mysqli_fetch_array(mysqli_query($conexao, $sql_code_user));
             <a href="./sobre.html">Sobre</a>
             <a href="./carrinho.php">Carrinho</a>
             <a href="#">Editar Conta</a>
-            <a href="./home.php">Voltar</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
     </header>

@@ -41,10 +41,10 @@ $query = mysqli_query($conexao, $sql_code);
     <header>
         <h2>Administrador</h2>
         <nav class="navegacao">
-            <a href="./home-admin.php">Home</a>
             <a href="./listar-usuarios.php">Editar Usuários</a>
             <a href="#">Editar Produtos</a>
             <a href="./cadastrar-produto.php">Cadastrar Produto</a>
+            <a href="./home-admin.php">Voltar</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
     </header>

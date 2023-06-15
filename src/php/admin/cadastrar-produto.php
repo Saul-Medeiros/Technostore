@@ -36,7 +36,6 @@ if (!isset($_SESSION['usuario_email'])) {
             <a href="./listar-usuarios.php">Editar Usuários</a>
             <a href="./listar-produtos.php">Editar Produtos</a>
             <a href="#">Cadastrar Produto</a>
-            <a href="./home-admin.php">Voltar</a>
             <button class="btnlogout-popup">Logout</button>
         </nav>
     </header>

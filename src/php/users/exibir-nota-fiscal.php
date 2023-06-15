@@ -1,5 +1,3 @@
-<!-- Editar -->
-
 <?php 
 $conexao = mysqli_connect("127.0.0.1", "root", "", "technostore");
 if (mysqli_connect_errno()) {
@@ -25,14 +23,7 @@ $total = $_POST['valor_total'];
 $usuario_id = mysqli_fetch_array(mysqli_query($conexao, "SELECT id FROM usuarios WHERE email='$usuario_email'"))['id'];
 
 $sql_code = "SELECT * FROM notafiscal WHERE usuarios_id='$usuario_id'";
-
-// primeiro registro de nota fiscal pelo usuário
-if (mysqli_num_rows(mysqli_query($conexao, $sql_code)) == 0) {
-    mysqli_query($conexao, "INSERT INTO notafiscal(data_emissao, valor_total, usuarios_id) VALUES('$data_emissao','$total','$usuario_id')");
-// atualização de registro da nota fiscal do usuário
-} else {
-    mysqli_query($conexao, "UPDATE notafiscal SET data_emissao='$data_emissao', valor_total='$total' WHERE usuarios_id='$usuario_id'");
-}
+mysqli_query($conexao, "INSERT INTO notafiscal(data_emissao, valor_total, usuarios_id) VALUES('$data_emissao','$total','$usuario_id')");
 ?>
 
 <!DOCTYPE html>
