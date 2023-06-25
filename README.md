@@ -33,7 +33,6 @@ Obs: os requisitos a seguir só podem ser feitos pelo administrador da página (
 
 ## MER
 
-![mer/der](./images/mer.jpg)
 
 ## Banco de Dados
 
