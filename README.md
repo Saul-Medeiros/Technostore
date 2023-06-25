@@ -77,7 +77,6 @@ preco | decimal | 10,2 | não | não
 * Os arquivos com a cor azul são páginas visíveis do site, que o usuário pode visualizar e interagir.
 * Os arquivos em laranja são páginas de redirecionamento, que contém arquivos php puro e comandos CRUD.
 
-
 ## Como rodar o site em seu Computador?
 
 * Requisitos essenciais:
