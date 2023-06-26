@@ -27,11 +27,11 @@ Obs: os requisitos a seguir só podem ser feitos pelo administrador da página (
 * Dados do carrinho (ID, ID do usuário, ID do produto);
 * Dados da nota fiscal (ID, ID do usuário, data de emissão da nota fiscal, valor total de compras);
 
-## Modelagem Conceitual
+## Modelo Relacional
 
 ![modelagem-conceitual](./images/modelagem_conceitual.png)
 
-## MER
+## MER/DER
 
 ![mer/der](./images/mer.jpg)
 
