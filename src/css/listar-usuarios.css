@@ -4,14 +4,14 @@
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
-    backdrop-filter: blur(20px); /* propriedade que aplica efeitos gráficos na página */
+    backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-between;
-    padding: 0 0 0 10px; /* cima direita baixo esquerda */
-    margin: 10px 0; /* cima-baixo direita-esquerda */
+    padding: 0 0 0 10px;
+    margin: 10px 0;
     align-items: center;
-    overflow: hidden; /* o que estiver posicionado fora do conteúdo é cortado e nenhuma barra de rolagem é exibida */
+    overflow: hidden;
 }
 
 .listagem-usuario div {
@@ -24,7 +24,7 @@
     flex-direction: row;
     align-items: center;
     width: 50%;
-    gap: 15px; /* espaçamento entre as tags internas */
+    gap: 15px;
 }
 
 .usuario img {

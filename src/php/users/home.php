@@ -19,16 +19,13 @@ $query = mysqli_query($conexao, $sql_code);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- favicon da página -->
     <link rel="shortcut icon" href="../../images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
-    <!-- Estilização da página -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/logout.css">
 
-    <!-- Script para ações na página -->
     <script defer src="../../js/logout.js"></script>
 </head>
 <body>
@@ -43,7 +40,6 @@ $query = mysqli_query($conexao, $sql_code);
         </nav>
     </header>
 
-    <!-- popup de logout do usuário -->
     <div class="logout-popup">
         <div class="popup">
             <h2>Logout</h2>
@@ -61,7 +57,6 @@ $query = mysqli_query($conexao, $sql_code);
 
     <main>
         <?php
-            // Banco de Dados não retornou nenhum resultado
             if (mysqli_num_rows($query) == 0) {
                 echo "<h1 style=\"
                 display: flex;
@@ -72,7 +67,6 @@ $query = mysqli_query($conexao, $sql_code);
                     TechnoStore<img style=\"width: 400px; height: 400px;\" src=\"../../images/logo-black.png\">
                 </h1>";
             }
-            // Banco de Dados retorna algum resultado
             while($row=mysqli_fetch_array($query)) {
         ?>
         

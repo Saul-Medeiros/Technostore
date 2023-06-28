@@ -5,10 +5,10 @@
 </head>
 <body>
     <?php
-    session_start(); // inicia a sessão na página
-    session_unset(); // limpa a sessão
-    session_destroy(); // destroi a sessão
-    header("Location: ../../index.php"); // redireciona a página principal
+    session_start();
+    session_unset();
+    session_destroy();
+    header("Location: ../../index.php");
     ?>
 </body>
 </html>

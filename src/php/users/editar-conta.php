@@ -5,16 +5,13 @@ if (mysqli_connect_errno()) {
 }
 
 session_start();
-// usuário não fez login
 if (!isset($_SESSION['usuario_email'])) {
-    // redireciona a página de login
     header('Location: ../../index.php');
 }
 
 $usuario_email = $_SESSION['usuario_email'];
 $sql_code_user = "SELECT * FROM usuarios WHERE email='$usuario_email'";
 
-// retorna uma linha de consulta e armazena as variáveis no array
 $row = mysqli_fetch_array(mysqli_query($conexao, $sql_code_user));
 ?>
 
@@ -24,17 +21,14 @@ $row = mysqli_fetch_array(mysqli_query($conexao, $sql_code_user));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- favicon da página -->
     <link rel="shortcut icon" href="../../images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
-    <!-- Estilização da página -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/logout.css">
     <link rel="stylesheet" href="../../css/editar-conta.css">
 
-    <!-- Script para ações na página -->
     <script defer src="../../js/logout.js"></script>
     <script defer src="../../js/edit-account.js"></script>
 </head>
@@ -49,7 +43,6 @@ $row = mysqli_fetch_array(mysqli_query($conexao, $sql_code_user));
         </nav>
     </header>
 
-    <!-- popup de logout do usuário -->
     <div class="logout-popup">
         <div class="popup">
             <h2>Logout</h2>

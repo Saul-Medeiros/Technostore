@@ -5,18 +5,17 @@
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
-    backdrop-filter: blur(20px); /* propriedade que aplica efeitos gráficos na página */
+    backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* o que estiver posicionado fora do conteúdo é cortado e nenhuma barra de rolagem é exibida */
-    transform: scale(0); /* o conteúdo surgirá do centro da página com efeito crescente */
+    overflow: hidden;
+    transform: scale(0);
     transition: transform 0.5s ease, height 0.2s ease;
     z-index: 1;
 }
 
-/* active e active-popup é uma classe criada pelo JavaScript por meio de linha de código */
 .formulario-login.active-popup {
     transform: scale(1);
 }
@@ -30,28 +29,26 @@
     padding: 40px;
 }
 
-/* -------------- Efeitos de transição de popups -------------- */
 .formulario-login .form-box.login {
     transition: transform 0.18s ease;
-    transform: translateX(0); /* o conteúdo comeca na posição normal da div */
+    transform: translateX(0);
 }
 
 .formulario-login.active .form-box.login {
     transition: none;
-    transform: translateX(-400px); /* o conteúdo vai se mover 400px para a direita */
+    transform: translateX(-400px);
 }
 
 .formulario-login .form-box.register {
     position: absolute;
     transition: none;
-    transform: translateX(400px); /* o conteúdo comeca 40px a direita da div */
+    transform: translateX(400px);
 }
 
 .formulario-login.active .form-box.register {
     transition: transform 0.18s ease;
-    transform: translateX(0); /* o conteúdo vai se mover 400px para a esquerda */
+    transform: translateX(0);
 }
-/* ------------------------------------------------------------ */
 
 .icones img {
     height: 19.19px;
@@ -105,7 +102,6 @@
     transition: 0.5s;
 }
 
-/* animação do label quando o input for selecionado */
 .input-box input:focus~label, .input-box input:valid~label {
     top: -5px;
 }

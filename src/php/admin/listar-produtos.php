@@ -1,9 +1,7 @@
 <?php 
 session_start();
-// usuário não iniciou sessão
 if (!isset($_SESSION['usuario_email'])) {
     header('Location: ../../index.php');
-// usuário não é admin
 } else if (!($_SESSION['usuario_email'] == "admin")) {
     header('Location: ../users/home.php');
 }
@@ -23,18 +21,15 @@ $query = mysqli_query($conexao, $sql_code);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- favicon da página -->
     <link rel="shortcut icon" href="../../images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
-    <!-- Estilização da página -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/home-admin.css">
     <link rel="stylesheet" href="../../css/logout.css">
     <link rel="stylesheet" href="../../css/listar-produtos.css">
 
-    <!-- Script para ações na página -->
     <script defer src="../../js/logout.js"></script>
 </head>
 <body>
@@ -49,7 +44,6 @@ $query = mysqli_query($conexao, $sql_code);
         </nav>
     </header>
 
-    <!-- popup de logout do usuário -->
     <div class="logout-popup">
         <div class="popup">
             <h2>Logout</h2>
@@ -67,9 +61,7 @@ $query = mysqli_query($conexao, $sql_code);
     
     <main>
         <?php 
-            // se não houver produtos cadastrados
             if (mysqli_num_rows($query) == 0) {
-                // redireciona a página principal
                 echo "
                 <script>
                     alert('Não há produtos para serem listados!');

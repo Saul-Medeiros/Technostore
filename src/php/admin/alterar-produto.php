@@ -1,9 +1,7 @@
 <?php 
 session_start();
-// usuário não iniciou sessão
 if (!isset($_SESSION['usuario_email'])) {
     header('Location: ../../index.php');
-// usuário não é admin
 } else if (!($_SESSION['usuario_email'] == "admin")) {
     header('Location: ../users/home.php');
 }
@@ -25,18 +23,15 @@ $preco = $row['preco'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- favicon da página -->
     <link rel="shortcut icon" href="../../images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
-    <!-- Estilização da página -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/home-admin.css">
     <link rel="stylesheet" href="../../css/logout.css">
     <link rel="stylesheet" href="../../css/editar-produto.css">
 
-    <!-- Script para ações na página -->
     <script defer src="../../js/logout.js"></script>
 </head>
 <body>
@@ -50,7 +45,6 @@ $preco = $row['preco'];
         </nav>
     </header>
 
-    <!-- popup de logout do usuário -->
     <div class="logout-popup">
         <div class="popup">
             <h2>Logout</h2>
@@ -97,6 +91,5 @@ $preco = $row['preco'];
             </div>
         </div>
     </main>
-
 </body>
 </html>

@@ -12,9 +12,9 @@
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
-    backdrop-filter: blur(20px); /* propriedade que aplica efeitos gráficos na página */
+    backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    overflow: hidden; /* o que estiver posicionado fora do conteúdo é cortado e nenhuma barra de rolagem é exibida */
+    overflow: hidden;
 }
 
 .nota-fiscal hr {
@@ -25,10 +25,10 @@
 .conteudo {
     display: flex;
     flex-direction: column;
-    width: 100%; /* 100% do tamanho da tag nota-fiscal */
-    overflow: hidden; /*esconde o que sobrepor o tamanho da tag */
+    width: 100%;
+    overflow: hidden;
     max-height: 400px;
-    overflow-y: auto; /* cria um scroll para mostrar itens ocultos caso exista */
+    overflow-y: auto;
 }
 
 .titulo, .itens, .valor-total {

@@ -16,10 +16,8 @@
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // alteração por usuário admin
     if ($_SESSION['usuario_email'] == "admin") {
         $user_change = $_POST['user'];
-    // alteração por usuário comum
     } else {
         $user_change = $_SESSION['usuario_email'];
     }
@@ -28,14 +26,12 @@
     mysqli_query($conexao, $sql_code);
     
     if ($_SESSION['usuario_email'] == "admin") {
-        // mostra uma mensagem de alteração de conta e volta a listagem de usuário
         echo "
         <script>
             alert('Usuário alterado com sucesso!');
             location.assign('../admin/listar-usuarios.php');
         </script>";
     } else {
-        // mostra uma mensagem de alteração de conta e faz logout do usuário, o encaminhando pra página principal para fazer login
         echo "
         <script>
             alert('Usuário alterado com sucesso! Faça login novamente.');

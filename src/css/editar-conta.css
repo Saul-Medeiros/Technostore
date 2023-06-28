@@ -70,7 +70,6 @@
     transition: 0.5s;
 }
 
-/* animação do label quando o input for selecionado */
 .input-box input:focus~label, .input-box input:valid~label {
     top: -5px;
 }

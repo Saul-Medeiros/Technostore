@@ -5,13 +5,10 @@ if (mysqli_connect_errno()) {
 }
 
 session_start();
-// usuário não fez login
 if (!isset($_SESSION['usuario_email'])) {
-    // redireciona a página de login
     header('Location: ../../index.php');
 }
 
-// define a hora padrão do sistema
 date_default_timezone_set("America/Sao_Paulo");
 $data = date('Y-m-d');
 $hora = date('H:i:s');
@@ -32,12 +29,10 @@ mysqli_query($conexao, "INSERT INTO notafiscal(data_emissao, valor_total, usuari
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- favicon da página -->
     <link rel="shortcut icon" href="../../images/logo-white.png" type="image/x-icon">
     
     <title>TechnoStore</title>
     
-    <!-- Estilização da página -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/nota-fiscal.css">
 </head>
@@ -68,31 +63,19 @@ mysqli_query($conexao, "INSERT INTO notafiscal(data_emissao, valor_total, usuari
             <div class="conteudo">
                 <table class="itens">
                     <?php
-                        /* armazena a query em uma variável para evitar erro de compilação na repetição
-                         * a query a seguir, selecionará o id, nome e preço do produto referente ao carrinho do usuário atual
-                         */
                         $query_carrinho = mysqli_query($conexao, "SELECT p.id, p.nome, p.preco FROM carrinho c INNER JOIN produtos p ON p.id = c.produtos_id WHERE usuarios_id='$usuario_id'");
                         
-                        /* esta variável fará o controle dos nomes de produtos, para caso algum produto esteja repetido no carrinho */
                         $produtos = array();
 
                         while ($row=mysqli_fetch_array($query_carrinho)) {
-                            // O bloco a seguir fará o controle para evitar repetição de um mesmo registro na nota fiscal
                             if (in_array($row['nome'], $produtos)) {
-                                // pula todo o bloco da repetição atual, passando para a próxima repetição
                                 continue;
                             } else {
-                                // armazena o nome do produto no array
                                 $produtos[] = $row['nome'];
                             }
                             
-                            /* a variável a seguir armazena o id do produto para usar na query a seguir */
                             $id_produto = $row['id'];
                             
-                            /* 
-                             * a variável a seguir vai guardar o número de linhas retornadas pelo Banco de Dados,
-                             * que representará a quantidade de vezes em que o produto se repete na tabela referente ao usuário logado
-                             */
                             $qtd_produto = mysqli_num_rows(mysqli_query($conexao, "SELECT * FROM carrinho WHERE usuarios_id='$usuario_id' AND produtos_id='$id_produto'"));
                     ?>
 

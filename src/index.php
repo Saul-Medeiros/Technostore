@@ -4,13 +4,10 @@ if (mysqli_connect_errno()) {
     die("Falha de Conexão com o MySQL: " . mysqli_connect_error());
 }
 
-/* Este bloco de código garante que, o usuário, uma vez logado, só consiga acessar esta página se tiver feito o logout */
 session_start();
 if (isset($_SESSION['usuario_email'])) { 
-    // sessão admin
     if ($_SESSION['usuario_email'] == 'admin') {
         header('Location: ./php/admin/home-admin.php');
-    // sessão com usuário comum
     } else {
         header('Location: ./php/users/home.php');
     }
@@ -26,16 +23,13 @@ $query = mysqli_query($conexao, $sql_code);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- favicon da página -->
     <link rel="shortcut icon" href="./images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
-    <!-- Estilização da página -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/login.css">
     
-    <!-- Script para ações na página -->
     <script defer src="./js/login-register-popup.js"></script>
 </head>
 <body>
@@ -48,12 +42,10 @@ $query = mysqli_query($conexao, $sql_code);
         </nav>
     </header>
 
-    <!-- Formulário pop-up -->
     <div class="formulario-login">
         <span class="icone-fechar">
             <img src="./images/close.png">
         </span>
-        <!-- Div de login do usuário -->
         <div class="form-box login">
             <h2>Login</h2>
             <form action="./php/redirects/login-check.php" method="POST">
@@ -77,7 +69,6 @@ $query = mysqli_query($conexao, $sql_code);
                 </div>
             </form>
         </div>
-        <!-- Div de Registro do Usuário -->
         <div class="form-box register">
             <h2>Cadastre-se</h2>
             <form action="./php/redirects/cadastrar-usuario.php" method="POST">
@@ -109,7 +100,6 @@ $query = mysqli_query($conexao, $sql_code);
 
     <main>
         <?php
-            // Banco de Dados não retornou nenhum resultado
             if (mysqli_num_rows($query) == 0) {
                 echo "<h1 style=\"
                 display: flex;
@@ -120,7 +110,6 @@ $query = mysqli_query($conexao, $sql_code);
                     TechnoStore<img style=\"width: 400px; height: 400px;\" src=\"./images/logo-black.png\">
                 </h1>";
             }
-            // Banco de Dados retorna algum resultado
             while($row=mysqli_fetch_array($query)) {
         ?>
 

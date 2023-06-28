@@ -1,33 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-/* Define uma configuração em todo o site e remove o estilo do user agent */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* o tamanho das tags vai considerar o padding e o margin como valores de altura e largura */
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
-    display: flex; /* os blocos vão ser posicionados lado-a-lado */
-    justify-content: center; /* centraliza no eixo x */
-    align-items: center; /* centraliza no eixo y */
-    min-height: 100vh; /* altura minima de 100% da viewport */
-    background: linear-gradient(90deg, #000000c2, #b8b8b8, #000000c2); /* define um gradiente de fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #000000c2, #b8b8b8, #000000c2);
 }
 
-/* ------------------- Cabeçalho ------------------- */
 header {
     position: fixed;
     background: #000;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0 100px; /* valores atribuidos ao eixo x e ao eixo y, respectivamente */
+    padding: 0 100px;
     display: flex;
-    justify-content: space-between; /* cria um espaço entre o conteúdo interno da tag em relação ao eixo x */
-    align-items: center; /* centraliza o conteúdo no eixo y */
-    z-index: 99; /* propriedade de sobreposição onde, o conteúdo do header se sobreposicionará na frente de qualquer conteúdo da página */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
 }
 
 h2 {
@@ -47,8 +45,8 @@ h2 {
     position: relative;
     font-size: 1.1em;
     color: #fff;
-    text-decoration: none; /* remove o sublinhado do link */
-    font-weight: 500; /* define o peso da fonte */
+    text-decoration: none;
+    font-weight: 500;
     margin-left: 40px;
 }
 
@@ -56,7 +54,6 @@ h2 {
     text-decoration: underline 3px;
 }
 
-/* A propriedade after adicona um conteúdo após a tag especificada */
 .navegacao a::after {
     content: '';
     position: absolute;
@@ -66,29 +63,29 @@ h2 {
     height: 3px;
     background: #fff;
     border-radius: 5px;
-    transform-origin: right; /* onde o efeito vai surgir */
-    transform: scaleX(0); /* o efeito não ficará visível inicialmente */
+    transform-origin: right;
+    transform: scaleX(0);
     transition: transform 0.5s;
 }
 
 .navegacao a:hover::after {
-    transform-origin: left; /* onde o efeito vai acabar */
-    transform: scaleX(1); /* o efeito vai ocupar 100% do tamanho da tag */
+    transform-origin: left;
+    transform: scaleX(1);
 }
 
 .navegacao .btnlogin-popup {
     width: 130px;
     height: 50px;
-    background: transparent; /* o fundo vai assumir a cor que está definida atrás do conteúdo */
+    background: transparent;
     border: 2px solid #fff;
-    outline: none; /* desativa a linha de seleção */
+    outline: none;
     border-radius: 6px;
-    cursor: pointer; /* muda o cursor para a maozinha */
+    cursor: pointer;
     font-size: 1.1em;
     color: #fff;
     font-weight: 500;
     margin-left: 40px;
-    transition: 0.5s; /* define o tempo de transição do efeito hover */
+    transition: 0.5s;
 }
 
 .navegacao .btnlogin-popup:hover {
@@ -96,12 +93,11 @@ h2 {
     color: #000;
 }
 
-/* --------------- Conteúdo Principal --------------- */
 main {
     display: flex;
     position: absolute;
     color: #fff;
-    height: calc(100vh - 80px); /* 100% da viewport - 80px do cabeçalho */
+    height: calc(100vh - 80px);
     width: 100%;
     top: 80px;
     flex-direction: row;
@@ -146,7 +142,7 @@ main {
     max-height: 100%;
     font-size: 10pt;
     text-align: center;
-    overflow-y: auto; /* o texto que sobrepor vai criar um scroll lateral para poder ler o conteúdo */
+    overflow-y: auto;
     position: absolute;
     padding: 0 10px;
     height: 150px;

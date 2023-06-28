@@ -4,14 +4,14 @@
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
-    backdrop-filter: blur(20px); /* propriedade que aplica efeitos gráficos na página */
+    backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-between;
-    padding: 0 0 0 10px; /* cima direita baixo esquerda */
-    margin: 10px 0; /* cima-baixo direita-esquerda */
+    padding: 0 0 0 10px;
+    margin: 10px 0;
     align-items: center;
-    overflow: hidden; /* o que estiver posicionado fora do conteúdo é cortado e nenhuma barra de rolagem é exibida */
+    overflow: hidden;
 }
 
 .produtos div {
@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 15px; /* espaçamento entre as tags internas */
+    gap: 15px;
     width: 20%;
 }
 
@@ -34,7 +34,7 @@
 
 .descricao {
     width: 38%;
-    max-height: 77%; /* a altura máxima é definida para o conteúdo não afetar outros elementos */
+    max-height: 77%;
     position: absolute;
     left: 250px;
     border-left: 2px solid  rgba(255, 255, 255, 0.5);
@@ -45,7 +45,7 @@
 }
 
 .preco {
-    position: absolute; /* a posição não vai ser afetada por alterações anteriores */
+    position: absolute;
     right: 190px;
 }
 

@@ -1,21 +1,17 @@
 <?php 
 session_start();
-// usuário nãa iniciou sessão
 if (!isset($_SESSION['usuario_email'])) {
     header('Location: ../../index.php');
-// usuário não é admin
 } else if (!($_SESSION['usuario_email'] == "admin")) {
     header('Location: ../users/home.php');
 }
 
-// Conexão com banco de dados
 $conexao = mysqli_connect("127.0.0.1", "root", "", "technostore");
 if (mysqli_connect_errno()) {
     die("Falha de Conexão com o MySQL: " . mysqli_connect_error());
 }
 
 $user = $_POST['user_mail'];
-// array que guarda as informações do usuário selecionado (return 1 row)
 $row = mysqli_fetch_array(mysqli_query($conexao, "SELECT * FROM usuarios WHERE email='$user'"));
 $nome = $row['nome'];
 $senha = $row['senha'];
@@ -27,18 +23,15 @@ $senha = $row['senha'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- favicon da página -->
     <link rel="shortcut icon" href="../../images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
-    <!-- Estilização da página -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/home-admin.css">
     <link rel="stylesheet" href="../../css/logout.css">
     <link rel="stylesheet" href="../../css/editar-conta.css">
 
-    <!-- Script para ações na página -->
     <script defer src="../../js/logout.js"></script>
     <script defer src="../../js/edit-account.js"></script>
 </head>
@@ -53,7 +46,6 @@ $senha = $row['senha'];
         </nav>
     </header>
 
-    <!-- popup de logout do usuário -->
     <div class="logout-popup">
         <div class="popup">
             <h2>Logout</h2>

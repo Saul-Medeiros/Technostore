@@ -5,9 +5,7 @@ if (mysqli_connect_errno()) {
 }
 
 session_start();
-// usuário não iniciou sessão
 if (!isset($_SESSION['usuario_email'])) {
-    // redireciona a página de login
     header('Location: ../../index.php');
 }
 
@@ -24,17 +22,14 @@ $query = mysqli_query($conexao, $sql_code);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- favicon da página -->
     <link rel="shortcut icon" href="../../images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
-    <!-- Estilização da página -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/logout.css">
     <link rel="stylesheet" href="../../css/carrinho.css">
 
-    <!-- Script para ações na página -->
     <script defer src="../../js/logout.js"></script>
 </head>
 <body>
@@ -49,7 +44,6 @@ $query = mysqli_query($conexao, $sql_code);
         </nav>
     </header>
 
-    <!-- popup de logout do usuário -->
     <div class="logout-popup">
         <div class="popup">
             <h2>Logout</h2>
