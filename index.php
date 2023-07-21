@@ -7,9 +7,9 @@ if (mysqli_connect_errno()) {
 session_start();
 if (isset($_SESSION['usuario_email'])) { 
     if ($_SESSION['usuario_email'] == 'admin') {
-        header('Location: ./php/admin/home-admin.php');
+        header('Location: ./src/php/admin/home-admin.php');
     } else {
-        header('Location: ./php/users/home.php');
+        header('Location: ./src/php/users/home.php');
     }
 }
 
@@ -23,39 +23,39 @@ $query = mysqli_query($conexao, $sql_code);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="shortcut icon" href="./images/logo-white.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./src/images/logo-white.png" type="image/x-icon">
 
     <title>TechnoStore</title>
     
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/login.css">
     
-    <script defer src="./js/login-register-popup.js"></script>
+    <script defer src="./src/js/login-register-popup.js"></script>
 </head>
 <body>
     <header>
-        <h2>TechnoStore<img class="logo" src="./images/logo-white.png"></h2>
+        <h2>TechnoStore<img class="logo" src="./src/images/logo-white.png"></h2>
         <nav class="navegacao">
             <a href="#">Home</a>
-            <a href="./php/users/sobre.html">Sobre</a>
+            <a href="./src/php/users/sobre.html">Sobre</a>
             <button class="btnlogin-popup">Login</button>
         </nav>
     </header>
 
     <div class="formulario-login">
         <span class="icone-fechar">
-            <img src="./images/close.png">
+            <img src="./src/images/close.png">
         </span>
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="./php/redirects/login-check.php" method="POST">
+            <form action="./src/php/redirects/login-check.php" method="POST">
                 <div class="input-box">
-                    <span class="icones"><img src="./images/mail.svg" alt="email-icon"></span>
+                    <span class="icones"><img src="./src/images/mail.svg" alt="email-icon"></span>
                     <input type="text" name="email" required>
                     <label>E-mail</label>
                 </div>
                 <div class="input-box">
-                    <span class="icones"><img src="./images/eye-off-outline.svg" class="senha-icone-login" alt="eye-icon"></span>
+                    <span class="icones"><img src="./src/images/eye-off-outline.svg" class="senha-icone-login" alt="eye-icon"></span>
                     <input type="password" name="senha" class="senha-login" required>
                     <label>Senha</label>
                 </div>
@@ -71,19 +71,19 @@ $query = mysqli_query($conexao, $sql_code);
         </div>
         <div class="form-box register">
             <h2>Cadastre-se</h2>
-            <form action="./php/redirects/cadastrar-usuario.php" method="POST">
+            <form action="./src/php/redirects/cadastrar-usuario.php" method="POST">
                 <div class="input-box">
-                    <span class="icones"><img src="./images/person.svg" alt="person-icon"></span>
+                    <span class="icones"><img src="./src/images/person.svg" alt="person-icon"></span>
                     <input type="text" name="nome" required>
                     <label>Nome de Usuário</label>
                 </div>
                 <div class="input-box">
-                    <span class="icones"><img src="./images/mail.svg" alt="email-icon"></span>
+                    <span class="icones"><img src="./src/images/mail.svg" alt="email-icon"></span>
                     <input type="text" name="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icones"><img class="senha-icone-registro" src="./images/eye-off-outline.svg"></span>
+                    <span class="icones"><img class="senha-icone-registro" src="./src/images/eye-off-outline.svg"></span>
                     <input type="password" name="senha" class="senha-registro" required>
                     <label>Senha</label>
                 </div>
@@ -107,7 +107,7 @@ $query = mysqli_query($conexao, $sql_code);
                 flex-direction: row;
                 align-items: center;
                 font-size: 40pt;\">
-                    TechnoStore<img style=\"width: 400px; height: 400px;\" src=\"./images/logo-black.png\">
+                    TechnoStore<img style=\"width: 400px; height: 400px;\" src=\"./src/images/logo-black.png\">
                 </h1>";
             }
             while($row=mysqli_fetch_array($query)) {
@@ -116,7 +116,7 @@ $query = mysqli_query($conexao, $sql_code);
             <div class="span-php">
                 <div class="nome-produto">
                     <?php echo $row['nome']; ?>
-                    <img src="./images/image-outline.svg" alt="foto-produto">
+                    <img src="./src/images/image-outline.svg" alt="foto-produto">
                 </div>
                 <hr style="border-color: rgba(255, 255, 255, 0.5); width: 100%; position: absolute; top: 50%;">
                 <h3>Descrição:</h3>
