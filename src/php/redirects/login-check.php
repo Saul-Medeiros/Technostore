@@ -18,7 +18,7 @@
         echo "
         <script>
             alert('Usuário não possui registro em nosso site!');
-            location.assign('../../index.php');
+            location.assign('../../../index.php');
         </script>";
         mysqli_close($conexao);
     } else {
@@ -27,7 +27,7 @@
             echo "
             <script>
                 alert('Senha incorreta!');
-                location.assign('../../index.php');
+                location.assign('../../../index.php');
             </script>";
         } else {
             $user_admin_check = "SELECT * FROM usuarios WHERE email='admin'";

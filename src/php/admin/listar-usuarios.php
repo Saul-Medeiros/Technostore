@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario_email'])) {
-    header('Location: ../../index.php');
+    header('Location: ../../../index.php');
 } else if (!($_SESSION['usuario_email'] == "admin")) {
     header('Location: ../users/home.php');
 }

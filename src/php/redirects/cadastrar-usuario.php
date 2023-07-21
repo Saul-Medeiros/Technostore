@@ -19,14 +19,14 @@
         echo "
         <script>
             alert('Usuário já possui registro em nosso site.');
-            location.assign('../../index.php');
+            location.assign('../../../index.php');
         </script>";
     } else {
         mysqli_query($conexao, $sql_code);
         echo "
         <script>
             alert('Usuário Registrado com Sucesso!');
-            location.assign('../../index.php');
+            location.assign('../../../index.php');
         </script>";
     }
     

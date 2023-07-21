@@ -6,7 +6,7 @@ if (mysqli_connect_errno()) {
 
 session_start();
 if (!isset($_SESSION['usuario_email'])) {
-    header('Location: ../../index.php');
+    header('Location: ../../../index.php');
 }
 
 $usuario_email = $_SESSION['usuario_email'];
