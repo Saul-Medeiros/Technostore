@@ -25,21 +25,21 @@ linkLogin.addEventListener('click', () => {
 });
 
 mostraOcultaSenhaLogin.addEventListener('click', () => {
-    if (mostraOcultaSenhaLogin.getAttribute('src') === './images/eye-off-outline.svg') {
-        mostraOcultaSenhaLogin.setAttribute('src', 'images/eye-outline.svg');
+    if (mostraOcultaSenhaLogin.getAttribute('src') === './src/images/eye-off-outline.svg') {
+        mostraOcultaSenhaLogin.setAttribute('src', './src/images/eye-outline.svg');
         senhaLogin.setAttribute('type', 'text');
     } else {
-        mostraOcultaSenhaLogin.setAttribute('src', './images/eye-off-outline.svg');
+        mostraOcultaSenhaLogin.setAttribute('src', './src/images/eye-off-outline.svg');
         senhaLogin.setAttribute('type', 'password');
     }
 });
 
 mostraOcultaSenhaRegistro.addEventListener('click', () => {
-    if (mostraOcultaSenhaRegistro.getAttribute('src') === './images/eye-off-outline.svg') {
-        mostraOcultaSenhaRegistro.setAttribute('src', 'images/eye-outline.svg');
+    if (mostraOcultaSenhaRegistro.getAttribute('src') === './src/images/eye-off-outline.svg') {
+        mostraOcultaSenhaRegistro.setAttribute('src', './src/images/eye-outline.svg');
         senhaRegistro.setAttribute('type', 'text');
     } else {
-        mostraOcultaSenhaRegistro.setAttribute('src', './images/eye-off-outline.svg');
+        mostraOcultaSenhaRegistro.setAttribute('src', './src/images/eye-off-outline.svg');
         senhaRegistro.setAttribute('type', 'password');
     }
 });
