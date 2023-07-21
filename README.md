@@ -29,11 +29,11 @@ Obs: os requisitos a seguir só podem ser feitos pelo administrador da página (
 
 ## Modelo Relacional
 
-![modelagem-conceitual](./images/modelagem_conceitual.png)
+![modelagem-conceitual](./img/modelagem_conceitual.png)
 
 ## MER/DER
 
-![mer/der](./images/mer.jpg)
+![mer/der](./img/mer.jpg)
 
 ## Banco de Dados
 
@@ -72,7 +72,7 @@ preco | decimal | 10,2 | não | não
 
 ## Mapa do Site
 
-![mapa do site](./images/diagrama_do_site.png)
+![mapa do site](./img/diagrama_do_site.png)
 
 * Os arquivos com a cor azul são páginas visíveis do site, que o usuário pode visualizar e interagir.
 * Os arquivos em laranja são páginas de redirecionamento, que contém arquivos php puro e comandos CRUD.
