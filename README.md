@@ -48,19 +48,19 @@ nome | varchar | 150 | não | não
 senha | varchar | 50 | não | não
 
 tabela **nota_fiscal**
-campo | tipo | tamanho | auto incremento | chave primária | default/expression
-:---: | :---: | :---: | :---: | :---: | :---:
+campo | tipo | tamanho | auto incremento | chave primária
+:---: | :---: | :---: | :---: | :---:
 id | int | 11 | sim | sim |
 data_emissao | datetime | | não | não |
 valor_total | decimal | 10,2 | não | não |
-usuarios_id | int | 11 | não | sim | on update cascade on delete cascade
+usuarios_id | int | 11 | não | sim
 
 tabela **carrinho**
-campo | tipo | tamanho | auto incremento | chave primária | default/expression
-:---: | :---: | :---: | :---: | :---:| :---:
+campo | tipo | tamanho | auto incremento | chave primária
+:---: | :---: | :---: | :---: | :---:
 id | int | 11 | sim | sim
 usuarios_id | int | 11 | não | sim | on update cascade on delete cascade
-produtos_id | int | 11 | não | sim | on update cascade on delete cascade
+produtos_id | int | 11 | não | sim
 
 tabela **produtos**
 campo | tipo | tamanho | auto incremento | chave primária
@@ -100,4 +100,4 @@ Ao colocar a senha, o prompt do MySQL é inicializado. A partir daqui já estamo
 
 Após os comandos executados e os requisitos essenciais efetuados, abra o seu navegador e insira na URL: `localhost/ProjetoWeb3A/`
 
-Pronto :), a página estará funcionando no seu navegador.
+Pronto, a página estará funcionando no seu navegador.
